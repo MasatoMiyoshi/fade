@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="importmap">
+      {
+        "imports": {
+          "animejs/lib/anime.es.js": "/node_modules/animejs/lib/anime.es.js",
+          "@masatomiyoshi/fade": "/dist/index.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="fade-in__link"><a href="#">Fade in</a></div>
+    <div class="fade-out__link"><a href="#">Fade out</a></div>
+    <div class="content">
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+      </ul>
+    </div>
+    <script type="module">
+      import { fadeIn, fadeOut } from "@masatomiyoshi/fade"
+      document.querySelector('.fade-in__link').addEventListener('click', (e) => {
+        fadeIn(document.querySelector('.content'))
+      });
+      document.querySelector('.fade-out__link').addEventListener('click', (e) => {
+        fadeOut(document.querySelector('.content'),
+          {
+            duration: 1000,
+            easing: 'easeInOutCubic',
+            beginFunc: () => { console.log('begin fadeOut'); },
+            completeFunc: () => { console.log('complete fadeOut'); }
+          }
+        );
+      });
+    </script>
+  </body>
+</html>
