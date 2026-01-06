@@ -1,23 +1,22 @@
-import anime from 'animejs/lib/anime.es.js';
+import { animate, utils } from 'animejs';
 
 export function fadeIn(elem, options) {
   options = Object.assign(defaultOptions(), options);
-  anime.remove(elem);
+  utils.remove(elem);
 
   let opacity = computedStyle(elem, 'opacity');
   opacity = (opacity === undefined) ? 1 : parseFloat(opacity);
   if (elem.style.opacity == '') elem.style.opacity = 0;
 
-  anime({
-    targets: elem,
+  animate(elem, {
     opacity: opacity,
     duration: options.duration,
-    easing: options.easing,
-    begin: function(a) {
+    ease: options.ease,
+    onBegin: function(a) {
       elem.style.display = '';
       if (options.beginFunc !== undefined) options.beginFunc();
     },
-    complete: function(a) {
+    onComplete: function(a) {
       elem.style.opacity = null;
       if (options.completeFunc !== undefined) options.completeFunc();
     }
@@ -26,17 +25,16 @@ export function fadeIn(elem, options) {
 
 export function fadeOut(elem, options) {
   options = Object.assign(defaultOptions(), options);
-  anime.remove(elem);
+  utils.remove(elem);
 
-  anime({
-    targets: elem,
+  animate(elem, {
     opacity: 0,
     duration: options.duration,
-    easing: options.easing,
-    begin: function(a) {
+    ease: options.ease,
+    onBegin: function(a) {
       if (options.beginFunc !== undefined) options.beginFunc();
     },
-    complete: function(a) {
+    onComplete: function(a) {
       elem.style.opacity = null;
       elem.style.display = 'none';
       if (options.completeFunc !== undefined) options.completeFunc();
@@ -47,7 +45,7 @@ export function fadeOut(elem, options) {
 function defaultOptions() {
   return {
     duration: 400,
-    easing: 'linear',
+    ease: 'linear',
     beginFunc: undefined,
     completeFunc: undefined
   };

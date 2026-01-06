@@ -5,7 +5,7 @@
     <script type="importmap">
       {
         "imports": {
-          "animejs/lib/anime.es.js": "/node_modules/animejs/lib/anime.es.js",
+          "animejs": "/node_modules/animejs/dist/modules/index.js",
           "@masatomiyoshi/fade": "/dist/index.module.mjs"
         }
       }
@@ -29,7 +29,7 @@
         fadeOut(document.querySelector('.content'),
           {
             duration: 1000,
-            easing: 'easeInOutCubic',
+            ease: 'inOutCubic',
             beginFunc: () => { console.log('begin fadeOut'); },
             completeFunc: () => { console.log('complete fadeOut'); }
           }
