@@ -2,6 +2,10 @@
   "name": "@masatomiyoshi/fade",
   "version": "1.0.2",
   "description": "A javascript library for fade component",
+  "engines": {
+    "node": ">=22.13",
+    "pnpm": ">=11.0"
+  },
   "source": "./src/index.js",
   "main": "./dist/index.js",
   "module": "./dist/index.module.mjs",

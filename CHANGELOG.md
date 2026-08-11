@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.3
+
+- Migrate from npm to pnpm.
+
 ## 1.0.2
 
 - Update dependencies and devDependencies.
