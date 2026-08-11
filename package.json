@@ -1,6 +1,6 @@
 {
   "name": "@masatomiyoshi/fade",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A javascript library for fade component",
   "engines": {
     "node": ">=22.13",
